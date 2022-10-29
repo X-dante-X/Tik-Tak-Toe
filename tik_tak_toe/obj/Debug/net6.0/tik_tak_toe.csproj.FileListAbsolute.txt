@@ -1,0 +1,15 @@
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\obj\Debug\net6.0\tik_tak_toe.csproj.AssemblyReference.cache
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\obj\Debug\net6.0\tik_tak_toe.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\obj\Debug\net6.0\tik_tak_toe.AssemblyInfoInputs.cache
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\obj\Debug\net6.0\tik_tak_toe.AssemblyInfo.cs
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\obj\Debug\net6.0\tik_tak_toe.csproj.CoreCompileInputs.cache
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\bin\Debug\net6.0\tik_tak_toe.exe
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\bin\Debug\net6.0\tik_tak_toe.deps.json
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\bin\Debug\net6.0\tik_tak_toe.runtimeconfig.json
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\bin\Debug\net6.0\tik_tak_toe.dll
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\bin\Debug\net6.0\tik_tak_toe.pdb
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\obj\Debug\net6.0\tik_tak_toe.dll
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\obj\Debug\net6.0\refint\tik_tak_toe.dll
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\obj\Debug\net6.0\tik_tak_toe.pdb
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\obj\Debug\net6.0\tik_tak_toe.genruntimeconfig.cache
+C:\Users\solom\source\repos\tik_tak_toe\tik_tak_toe\obj\Debug\net6.0\ref\tik_tak_toe.dll
