@@ -234,7 +234,7 @@ namespace tik_tak_toe
 
         static void start()
         {
-            while (player.playerWon == false)
+            for (int i = 0; i < 9; i++)
             {
                 if (player.playerMove)
                 {
@@ -244,7 +244,13 @@ namespace tik_tak_toe
                 {
                     player2.getMovePlayer2();
                 }
+                if(player.playerWon == true) break;
             }
+            if (player.playerWon == false)
+            {
+                Console.WriteLine("draw");
+            }
+ 
         }
     }
 }
