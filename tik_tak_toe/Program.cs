@@ -46,14 +46,14 @@ namespace tik_tak_toe
         }
         public static void check1(char move)
         {
-            if (move == '1' || move == '2' || move == '3' || move == '4' || move == '5' || move == '6' || move == '7' || move == '8' || move == '9')
+            if (move == 'x' || move == '0')
+            {
+                Console.WriteLine(" - unexeptable value, try again");
+                getMovePlayer1();
+            }
+            else
             {
                 doMovePlayer1(move);
-            }
-            else 
-            {
-                Console.WriteLine("unexeptable value, try again");
-                getMovePlayer1();
             }
         }
         public static void checkWinPlayer1()
@@ -116,6 +116,11 @@ namespace tik_tak_toe
                     }
                 }
             }
+            if (player.playerMove == true)
+            {
+                Console.WriteLine(" - unexeptable value, try again");
+                getMovePlayer1();
+            }
         }
 
     }
@@ -129,14 +134,14 @@ namespace tik_tak_toe
         }
         public static void check2(char move)
         {
-            if (move == '1' || move == '2' || move == '3' || move == '4' || move == '5' || move == '6' || move == '7' || move == '8' || move == '9')
+            if (move == 'x' || move == '0')
             {
-                doMovePlayer2(move);
+                Console.WriteLine(" - unexeptable value, try again");
+                getMovePlayer2();
             }
             else
             {
-                Console.WriteLine("unexeptable value, try again");
-                getMovePlayer2();
+                doMovePlayer2(move);
             }
         }
         public static void checkWinPlayer2()
@@ -199,6 +204,11 @@ namespace tik_tak_toe
                     }
                 }
             }
+            if (player.playerMove == false)
+            {
+                Console.WriteLine(" - unexeptable value, try again");
+                getMovePlayer2();
+            }
         }
     }
     class Program
@@ -210,8 +220,8 @@ namespace tik_tak_toe
             while (true)
             {
                 Console.WriteLine("restart y/n?");
-                string ifRestart = Console.ReadLine();
-                if (ifRestart == "y")
+                char ifRestart = Console.ReadKey().KeyChar;
+                if (ifRestart == 'y')
                 {
                     restart();
                 }
