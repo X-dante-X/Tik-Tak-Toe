@@ -34,7 +34,7 @@ namespace tik_tak_toe
     {
         public static bool playerMove = true;
         public static bool playerWon = false;
-           
+
     }
     class player1 : player
     {
@@ -42,69 +42,62 @@ namespace tik_tak_toe
         {
             Console.WriteLine("Player 1 move");
             char move = Console.ReadKey().KeyChar;
-            check1(move);
+            doMovePlayer1(move);
         }
-        public static void check1(char move)
-        {
-            if (move == 'x' || move == '0')
-            {
-                Console.WriteLine(" - unexeptable value, try again");
-                getMovePlayer1();
-            }
-            else
-            {
-                doMovePlayer1(move);
-            }
-        }
+
         public static void checkWinPlayer1()
         {
-            if (board.gameBoard[0, 0] == 'x' && board.gameBoard[0, 2] == 'x' && board.gameBoard[0, 4] == 'x')
+            for (int i = 0; i < board.startBoard.GetLength(0); i = i + 2)
             {
-                Console.WriteLine("Player 1 won");
-                playerWon = true;
+                int sumOfRow = 0;
+                for (int j = 0; j < board.startBoard.GetLength(1); j = j + 2)
+                {
+                    if (board.gameBoard[i, j] == 'x')
+                        sumOfRow++;
+                }
+                if (sumOfRow == 3)
+                {
+                    Console.WriteLine("Player 1 won");
+                    playerWon = true;
+                }
             }
-            if (board.gameBoard[2, 0] == 'x' && board.gameBoard[2, 2] == 'x' && board.gameBoard[2, 4] == 'x')
+
+            for (int j = 0; j < board.startBoard.GetLength(0); j = j + 2)
             {
-                Console.WriteLine("Player 1 won");
-                playerWon = true;
+                int sumOfRow = 0;
+                for (int i = 0; i < board.startBoard.GetLength(1); i = i + 2)
+                {
+                    if (board.gameBoard[i, j] == 'x')
+                        sumOfRow++;
+                }
+                if (sumOfRow == 3)
+                {
+                    Console.WriteLine("Player 1 won");
+                    playerWon = true;
+                }
             }
-            if (board.gameBoard[4, 0] == 'x' && board.gameBoard[4, 2] == 'x' && board.gameBoard[4, 4] == 'x')
+
+            int sumOfDiagonalA = 0;
+            int sumOfDiagonalB = 0;
+            for (int k = 0; k < board.startBoard.GetLength(0); ++k)
             {
-                Console.WriteLine("Player 1 won");
-                playerWon = true;
+                if (board.gameBoard[k, k] == 'x')
+                    ++sumOfDiagonalA;
+                if (board.gameBoard[k, board.startBoard.GetLength(0) - 1 - k] == 'x')
+                    ++sumOfDiagonalB;
             }
-            if (board.gameBoard[0, 0] == 'x' && board.gameBoard[2, 2] == 'x' && board.gameBoard[4, 4] == 'x')
-            {
-                Console.WriteLine("Player 1 won");
-                playerWon = true;
-            }
-            if (board.gameBoard[4, 0] == 'x' && board.gameBoard[2, 2] == 'x' && board.gameBoard[4, 4] == 'x')
-            {
-                Console.WriteLine("Player 1 won");
-                playerWon = true;
-            }
-            if (board.gameBoard[0, 0] == 'x' && board.gameBoard[2, 0] == 'x' && board.gameBoard[4, 0] == 'x')
-            {
-                Console.WriteLine("Player 1 won");
-                playerWon = true;
-            }
-            if (board.gameBoard[0, 2] == 'x' && board.gameBoard[2, 2] == 'x' && board.gameBoard[4, 2] == 'x')
-            {
-                Console.WriteLine("Player 1 won");
-                playerWon = true;
-            }
-            if (board.gameBoard[0, 4] == 'x' && board.gameBoard[2, 4] == 'x' && board.gameBoard[4, 4] == 'x')
+            if (sumOfDiagonalA == 3 || sumOfDiagonalB == 3)
             {
                 Console.WriteLine("Player 1 won");
                 playerWon = true;
             }
         }
 
-            public static void doMovePlayer1(char move)
+        public static void doMovePlayer1(char move)
         {
-            for (int i = 0; i < board.gameBoard.GetLength(0); i+=2)
+            for (int i = 0; i < board.gameBoard.GetLength(0); i += 2)
             {
-                for (int j = 0; j < board.gameBoard.GetLength(1); j+=2)
+                for (int j = 0; j < board.gameBoard.GetLength(1); j += 2)
                 {
                     if (board.gameBoard[i, j] == move)
                     {
@@ -124,64 +117,71 @@ namespace tik_tak_toe
         }
 
     }
-    class player2:player
+    class player2 : player
     {
+        public static bool bot = false;
+
         public static void getMovePlayer2()
         {
-            Console.WriteLine("Player 2 move");
-            char move = Console.ReadKey().KeyChar;
-            check2(move);
-        }
-        public static void check2(char move)
-        {
-            if (move == 'x' || move == '0')
+            Random rnd = new Random();
+
+            if (bot == false)
             {
-                Console.WriteLine(" - unexeptable value, try again");
-                getMovePlayer2();
+                Console.WriteLine("Player 2 move");
+                char move = Console.ReadKey().KeyChar;
+                doMovePlayer2(move);
             }
             else
             {
+                string x = rnd.Next(1, 9).ToString();
+                char move = x[0];
                 doMovePlayer2(move);
             }
+
         }
         public static void checkWinPlayer2()
         {
-            if (board.gameBoard[0, 0] == '0' && board.gameBoard[0, 2] == '0' && board.gameBoard[0, 4] == '0')
+            
+            for (int i = 0; i < board.startBoard.GetLength(0); i = i + 2)
             {
-                Console.WriteLine("Player 2 won");
-                playerWon = true;
+                int sumOfRow = 0;
+                for (int j = 0; j < board.startBoard.GetLength(1); j = j + 2)
+                {
+                    if (board.gameBoard[i, j] == '0')
+                        sumOfRow++;
+                }
+                if (sumOfRow == 3)
+                {
+                    Console.WriteLine("Player 2 won");
+                    playerWon = true;
+                }
             }
-            if (board.gameBoard[2, 0] == '0' && board.gameBoard[2, 2] == '0' && board.gameBoard[2, 4] == '0')
+            
+            for (int j = 0; j < board.startBoard.GetLength(0); j = j + 2)
             {
-                Console.WriteLine("Player 2 won");
-                playerWon = true;
+                int sumOfRow = 0;
+                for (int i = 0; i < board.startBoard.GetLength(1); i = i + 2)
+                {
+                    if (board.gameBoard[i, j] == '0')
+                        sumOfRow++;
+                }
+                if (sumOfRow == 3)
+                {
+                    Console.WriteLine("Player 2 won");
+                    playerWon = true;
+                }
             }
-            if (board.gameBoard[4, 0] == '0' && board.gameBoard[4, 2] == '0' && board.gameBoard[4, 4] == '0')
+
+            int sumOfDiagonalA = 0;
+            int sumOfDiagonalB = 0;
+            for (int k = 0; k < board.startBoard.GetLength(0); ++k)
             {
-                Console.WriteLine("Player 2 won");
-                playerWon = true;
+                if (board.gameBoard[k, k] == '0')
+                    ++sumOfDiagonalA;
+                if (board.gameBoard[k, board.startBoard.GetLength(0) - 1 - k] == '0')
+                    ++sumOfDiagonalB;
             }
-            if (board.gameBoard[0, 0] == '0' && board.gameBoard[2, 2] == '0' && board.gameBoard[4, 4] == '0')
-            {
-                Console.WriteLine("Player 2 won");
-                playerWon = true;
-            }
-            if (board.gameBoard[4, 0] == '0' && board.gameBoard[2, 2] == '0' && board.gameBoard[4, 4] == '0')
-            {
-                Console.WriteLine("Player 2 won");
-                playerWon = true;
-            }
-            if (board.gameBoard[0, 0] == '0' && board.gameBoard[2, 0] == '0' && board.gameBoard[4, 0] == '0')
-            {
-                Console.WriteLine("Player 2 won");
-                playerWon = true;
-            }
-            if (board.gameBoard[0, 2] == '0' && board.gameBoard[2, 2] == '0' && board.gameBoard[4, 2] == '0')
-            {
-                Console.WriteLine("Player 2 won");
-                playerWon = true;
-            }
-            if (board.gameBoard[0, 4] == '0' && board.gameBoard[2, 4] == '0' && board.gameBoard[4, 4] == '0')
+            if (sumOfDiagonalA == 3 || sumOfDiagonalB == 3)
             {
                 Console.WriteLine("Player 2 won");
                 playerWon = true;
@@ -204,46 +204,118 @@ namespace tik_tak_toe
                     }
                 }
             }
-            if (player.playerMove == false)
+            if (bot == false)
             {
-                Console.WriteLine(" - unexeptable value, try again");
-                getMovePlayer2();
+                if (player.playerMove == false)
+                {
+                    Console.WriteLine(" - unexeptable value, try again");
+                    getMovePlayer2();
+                }
             }
+            else
+            {
+                if (player.playerMove == false)
+                {
+                    getMovePlayer2();
+                }
+            }
+        }
+    }
+    public class Option
+    {
+        public string Name { get; }
+        public Action Selected { get; }
+
+        public Option(string name, Action selected)
+        {
+            Name = name;
+            Selected = selected;
         }
     }
     class Program
     {
+        public static List<Option> options;
         static void Main(string[] args)
         {
-            board.drawBoard();
-            start();
-            while (true)
+
+            options = new List<Option>
             {
-                Console.WriteLine("restart y/n?");
-                char ifRestart = Console.ReadKey().KeyChar;
-                if (ifRestart == 'y')
+                new Option("Start 2 players", () => start(false)),
+                new Option("Start 1 player", () =>  start(true)),
+                new Option("Exit", () => Environment.Exit(0)),
+            };
+            int index = 0;
+
+            WriteMenu(options, options[index]);
+
+            // Store key info in here
+            ConsoleKeyInfo keyinfo;
+            do
+            {
+                keyinfo = Console.ReadKey();
+
+                // Handle each key input (down arrow will write the menu again with a different selected item)
+                if (keyinfo.Key == ConsoleKey.DownArrow)
                 {
-                    restart();
+                    if (index + 1 < options.Count)
+                    {
+                        index++;
+                        WriteMenu(options, options[index]);
+                    }
+                }
+                if (keyinfo.Key == ConsoleKey.UpArrow)
+                {
+                    if (index - 1 >= 0)
+                    {
+                        index--;
+                        WriteMenu(options, options[index]);
+                    }
+                }
+                // Handle different action for the option
+                if (keyinfo.Key == ConsoleKey.Enter)
+                {
+                    options[index].Selected.Invoke();
+                    index = 0;
+                }
+            }
+            while (keyinfo.Key != ConsoleKey.X);
+
+            Console.ReadKey();
+
+
+        }
+        static void WriteMenu(List<Option> options, Option selectedOption)
+        {
+            Console.Clear();
+
+            foreach (Option option in options)
+            {
+                if (option == selectedOption)
+                {
+                    Console.Write("> ");
                 }
                 else
                 {
-                    Environment.Exit(0);
+                    Console.Write(" ");
                 }
 
+                Console.WriteLine(option.Name);
             }
-
         }
-        static void restart()
+        static void restart(bool x)
         {
             board.reset();
             Console.Clear();
             board.drawBoard();
             player.playerWon = false;
-            start();
+            start(x);
         }
 
-        static void start()
+        static void start(bool x)
         {
+            player2.bot = x;
+            Console.Clear();
+            board.drawBoard();
             for (int i = 0; i < 9; i++)
             {
                 if (player.playerMove)
@@ -254,14 +326,24 @@ namespace tik_tak_toe
                 {
                     player2.getMovePlayer2();
                 }
-                if(player.playerWon == true) break;
+                if (player.playerWon == true) break;
             }
             if (player.playerWon == false)
             {
-                Console.WriteLine("draw");
+                Console.WriteLine("tie");
             }
- 
+
+            Console.WriteLine("restart y/n?");
+            char ifRestart = Console.ReadKey().KeyChar;
+            if (ifRestart == 'y')
+            {
+                restart(x);
+            }
+            else
+            {
+                System.Diagnostics.Process.Start(System.AppDomain.CurrentDomain.FriendlyName);
+                Environment.Exit(0);
+            }
         }
     }
 }
-
