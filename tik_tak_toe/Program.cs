@@ -59,6 +59,7 @@ namespace tik_tak_toe
                 {
                     Console.WriteLine("Player 1 won");
                     playerWon = true;
+                    return;
                 }
             }
 
@@ -74,6 +75,7 @@ namespace tik_tak_toe
                 {
                     Console.WriteLine("Player 1 won");
                     playerWon = true;
+                    return;
                 }
             }
 
@@ -90,6 +92,7 @@ namespace tik_tak_toe
             {
                 Console.WriteLine("Player 1 won");
                 playerWon = true;
+                return;
             }
         }
 
@@ -154,6 +157,7 @@ namespace tik_tak_toe
                 {
                     Console.WriteLine("Player 2 won");
                     playerWon = true;
+                    return;
                 }
             }
             
@@ -169,6 +173,7 @@ namespace tik_tak_toe
                 {
                     Console.WriteLine("Player 2 won");
                     playerWon = true;
+                    return;
                 }
             }
 
@@ -185,6 +190,7 @@ namespace tik_tak_toe
             {
                 Console.WriteLine("Player 2 won");
                 playerWon = true;
+                return;
             }
         }
 
