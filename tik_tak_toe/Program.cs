@@ -254,13 +254,11 @@ namespace tik_tak_toe
 
             WriteMenu(options, options[index]);
 
-            // Store key info in here
             ConsoleKeyInfo keyinfo;
             do
             {
                 keyinfo = Console.ReadKey();
 
-                // Handle each key input (down arrow will write the menu again with a different selected item)
                 if (keyinfo.Key == ConsoleKey.DownArrow)
                 {
                     if (index + 1 < options.Count)
@@ -277,7 +275,6 @@ namespace tik_tak_toe
                         WriteMenu(options, options[index]);
                     }
                 }
-                // Handle different action for the option
                 if (keyinfo.Key == ConsoleKey.Enter)
                 {
                     options[index].Selected.Invoke();
